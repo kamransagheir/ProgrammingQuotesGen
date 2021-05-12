@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Quotes Generator</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+        <link th:href="@{/styles/style.css}" rel="stylesheet" />
+        <script type="text/javascript" th:src="@{/js/quoteFuncitons.js}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1 id="title">Quote Generator</h1>
+
+        <div id="quoteDisplay">
+            <h3 th:text="${quote}" />
+            <h5 th:text="${author}" />
+        </div>
+
+        <div class="rate">
+            <input type="radio" onclick="showSimilarQuotes()" id="star5" name="rate" value="5" /> <label for="star5" title="text">5 stars</label> <input type="radio" onclick="showSimilarQuotes()" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label> <input type="radio" id="star3" name="rate" value="3" /> <label for="star3" title="text">3 stars</label> <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label> <input type="radio" id="star1" name="rate" value="1" /> <label for="star1" title="text">1 star</label>
+
+            <!-- check if user gave 4 or 5 star rating -->
+        </div>
+        <br />
+
+        <form id="newQuoteForm" action="#" th:action="@{/new}" method="get">
+            <input type="submit" id="newQuoteButton" value="Display New Quote" />
+        </form>
+    </body>
+</html>
